@@ -1,7 +1,7 @@
 //brachio dino
 let brachio_scale = 0.8; // default: 1 (100% size)
 let tri_scale = 1.2;     // you can change this as needed
-let brachio_x = 60
+let brachio_x = 80
 let brachio_y = 150
 let brachio_neck_height = 150 //90 default
 let brachio_head_y = brachio_y-brachio_neck_height+30
@@ -11,10 +11,10 @@ let tri_y = 48
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(DEVELOP_GLYPH);
-  //pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.output_mode(GRID_WALLPAPER);
  
   pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
@@ -26,11 +26,13 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  background(255); 
+  background(45, 90, 83); 
 }
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   hstripes_dark();
   hstripes_light();
+  vstripes_dark();
+  vstripes_light();
   brachioDino();
   triDino();
 }
@@ -148,7 +150,7 @@ function g_scales () {
 function triDino() {
   push();
   translate(tri_x, tri_y);
-  scale(tri_scale);
+  scale(tri_scale, tri_scale); // add - to make it inverted
   translate(-tri_x, -tri_y);
 
   tri_back_legs();
@@ -225,21 +227,31 @@ function tri_stomach() {
 }
 function hstripes_light(){
   noStroke();
-  fill(222, 236, 255);
+  fill(81, 154, 137);
   rect(0, 0, 200, 15);
-  rect(0, 40, 200, 15);
   rect(0, 80, 200, 15);
-  rect(0, 120, 200, 15);
   rect(0, 160, 200, 15);
 }
 function hstripes_dark(){
   noStroke();
-  fill(164, 198, 245);
+  fill(55, 112, 102);
   rect(0, 5, 200, 15);
-  rect(0, 45, 200, 15);
   rect(0, 85, 200, 15);
-  rect(0, 125, 200, 15);
   rect(0, 165, 200, 15);
+}
+function vstripes_light() {
+  noStroke();
+  fill(81, 154, 137);
+  rect(0, 0, 15, 200);
+  rect(80, 0, 15, 200);
+  rect(160, 0, 15, 200);
+}
+function vstripes_dark(){
+  noStroke();
+  fill(55, 112, 102);
+  rect(5, 0, 15, 200);
+  rect(85, 0, 15, 200);
+  rect(165, 0, 15, 200);
 }
 
 
