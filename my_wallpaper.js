@@ -1,19 +1,41 @@
-//brachio dino
-let brachio_scale = 0.8; // default: 1 (100% size)
-let tri_scale = 1.2;     // you can change this as needed
-let brachio_x = 80
-let brachio_y = 150
-let brachio_neck_height = 150 //90 default
-let brachio_head_y = brachio_y-brachio_neck_height+30
+//Scale for each dinosaur
+let brachio_scale = 1.1;
+let tri_scale = 1.8;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 100
+let brachio_y = 0
+//Coordinates for Triceratops
 let tri_x = 120
-let tri_y = 48
+let tri_y = 120
+let brachio_neck_height = 110 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [161, 170, 125] //165, 172, 139
+let brachio_secondry = [103, 109, 78]
+let brachio_tertiary = [53, 61, 43]
+let brachio_belly = [194, 197, 173]
+
+// Triceratops Colour Parameters
+let tri_primary = [121, 82, 43]
+let tri_secondary = [40, 25, 16]
+let tri_tertiary = [81, 50, 25]
+let tri_belly = [140, 105, 64]
+
+// Background
+let background_colour = [161, 139, 105]
+let light_stripe_colour = [181, 173, 147]
+let dark_stripe_colour = [140, 105, 64]
+
+//Not changing this parameter
+let brachio_head_y = brachio_y-brachio_neck_height+30
 
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(DEVELOP_GLYPH);
-  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.output_mode(GLIDE_WALLPAPER);
  
-  pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.resolution(NINE_PORTRAIT);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -26,7 +48,7 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  background(45, 90, 83); 
+  background(background_colour); 
 }
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   hstripes_dark();
@@ -36,60 +58,61 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   brachioDino();
   triDino();
 }
+// ----------Brachiosaurus----------
 function brachioDino() {
   push();
   translate(brachio_x, brachio_y);   // Move origin to dino position
-  scale(brachio_scale, brachio_scale); // Add - to invert it
+  scale(-brachio_scale, brachio_scale); // Add - to invert it
   translate(-brachio_x, -brachio_y); // Reset origin for drawing
 
-  g_scales();
-  g_body();
-  g_head();
-  g_eyes();
-  g_back_feet();
-  g_stomach();
-  g_front_feet();
-  g_tail();
+  brachio_scales();
+  brachio_body();
+  brachio_head();
+  brachio_eyes();
+  brachio_back_feet();
+  brachio_stomach();
+  brachio_front_feet();
+  brachio_tail();
 
   pop();
 }
-function g_body() {
+function brachio_body() {
   noStroke();
-  fill(147, 196, 125);
+  fill(brachio_primary);
   rect(brachio_x-50, brachio_y, 20, -brachio_neck_height);
   ellipse(brachio_x, brachio_y, 100, 50);
 }
-function g_head() {
-  fill(112, 159, 91);
+function brachio_head() {
+  fill(brachio_secondry);
   ellipse(brachio_x-31, brachio_head_y-36, 10);
   ellipse(brachio_x-47, brachio_head_y-45, 10);
-  fill(147, 196, 125);
+  fill(brachio_primary);
   ellipse(brachio_x-50, brachio_head_y-30, 40, 30);
-  fill(84, 120, 67);
-  ellipse(brachio_x-62, brachio_head_y-27, 3);
+  fill(brachio_tertiary);
+  ellipse(brachio_x-62, brachio_head_y-27, 4);
 }
-function g_eyes() {
+function brachio_eyes() {
   fill(0);
-  ellipse(brachio_x-48, brachio_head_y-33, 5);
+  ellipse(brachio_x-48, brachio_head_y-33, 6);
 }
-function g_stomach() {
-  fill(210, 244, 195);
+function brachio_stomach() {
+  fill(brachio_belly);
   ellipse(brachio_x, brachio_y+12.5, 85, 25);
 }
-function g_back_feet() {
-  fill(84, 120, 67);
+function brachio_back_feet() {
+  fill(brachio_tertiary);
   rect(brachio_x-40, brachio_y+10, 20, 25);
   rect(brachio_x+10, brachio_y+10, 20, 25);
 }
-function g_front_feet() {
-  fill(112, 159, 91);
+function brachio_front_feet() {
+  fill(brachio_secondry);
   rect(brachio_x-35, brachio_y+5, 20, 35);
   arc(brachio_x-25, brachio_y+6, 20, 25, 180, 360, OPEN);
   rect(brachio_x+15, brachio_y+5, 20, 35);
   arc(brachio_x+25, brachio_y+6, 20, 25, 180, 360, OPEN);
 }
-function g_tail() {
-  fill(147, 196, 125);
+function brachio_tail() {
+  fill(brachio_primary);
   beginShape();
   curveVertex(brachio_x+40, brachio_y-15);
   curveVertex(brachio_x+75, brachio_y+10);
@@ -102,8 +125,8 @@ function g_tail() {
   curveVertex(brachio_x+74, brachio_y+35);
   endShape();
 }
-function g_scales () {
-  fill(112, 159, 91);
+function brachio_scales () {
+  fill(brachio_secondry);
   noStroke();
   //neck
   if (brachio_neck_height > 210) {
@@ -147,10 +170,11 @@ function g_scales () {
   ellipse(brachio_x+76, brachio_y+33, 10);
   ellipse(brachio_x+60, brachio_y+50, 10);
 }
+// ----------Triceratops----------
 function triDino() {
   push();
   translate(tri_x, tri_y);
-  scale(tri_scale, tri_scale); // add - to make it inverted
+  scale(-tri_scale, tri_scale); // add - to make it inverted
   translate(-tri_x, -tri_y);
 
   tri_back_legs();
@@ -164,7 +188,7 @@ function triDino() {
 }
 function tri_body() {
   noStroke();
-  fill(251, 197, 200);
+  fill(tri_primary);
   ellipse(tri_x, tri_y, 47);
   //arc(122.5, 43, 95, 60, 358, 130);
   arc(tri_x-13, tri_y-15, 110, 80, 358, 75, OPEN);
@@ -182,27 +206,27 @@ function tri_body() {
   
 }
 function tri_head( ){
-  fill(213, 102, 111);
+  fill(tri_secondary);
   ellipse(tri_x+16, tri_y-3, 9) //bumps
   ellipse(tri_x+16, tri_y-15, 9) //bumps
   ellipse(tri_x+16, tri_y-27, 9) //bumps
-  fill(251, 197, 200);
+  fill(tri_primary);
   triangle(tri_x+17, tri_y-33, tri_x+17, tri_y+7, tri_x+52, tri_y-13);
   rect(tri_x+32, tri_y-20.5, 25, 15)
-  fill(213, 102, 111);
+  fill(tri_secondary);
   rect(tri_x+20, tri_y-20, 12, 4);
   rect(tri_x+20, tri_y-10, 12, 4);
   triangle(tri_x+52, tri_y-20, tri_x+61, tri_y-28, tri_x+57, tri_y-16)
   triangle(tri_x+34, tri_y-23, tri_x+41, tri_y-33, tri_x+40, tri_y-20)
-  fill(231, 142, 150);
-  ellipse(tri_x+52, tri_y-11, 2.5)
+  fill(tri_tertiary);
+  ellipse(tri_x+52, tri_y-11, 3.5)
 }
 function tri_eye() {
   fill(0);
   ellipse(tri_x+40, tri_y-15, 5)
 }
 function tri_front_legs() {
-  fill(231, 142, 150);
+  fill(tri_tertiary);
   ellipse(tri_x-12, tri_y+16, 13);
   rect(tri_x-18.5, tri_y+16, 13, 16);
   ellipse(tri_x+16, tri_y+14, 13);
@@ -210,12 +234,12 @@ function tri_front_legs() {
 }
 function tri_back_legs() {
   noStroke();
-  fill(213, 102, 111);
+  fill(tri_secondary);
   rect(tri_x-12.5, tri_y+13, 13, 16);
   rect(tri_x+15.5, tri_y+11, 13, 16);
 }
 function tri_stomach() {
-  fill(255, 226, 228);
+  fill(tri_belly);
   beginShape();
   vertex(tri_x-6, tri_y+25);
   vertex(tri_x+10, tri_y+22);
@@ -227,31 +251,31 @@ function tri_stomach() {
 }
 function hstripes_light(){
   noStroke();
-  fill(81, 154, 137);
-  rect(0, 0, 200, 15);
-  rect(0, 80, 200, 15);
-  rect(0, 160, 200, 15);
+  fill(light_stripe_colour);
+  rect(0, 15, 200, 15);
+  rect(0, 95, 200, 15);
+  rect(0, 175, 200, 15);
 }
 function hstripes_dark(){
   noStroke();
-  fill(55, 112, 102);
-  rect(0, 5, 200, 15);
-  rect(0, 85, 200, 15);
-  rect(0, 165, 200, 15);
+  fill(dark_stripe_colour);
+  rect(0, 20, 200, 15);
+  rect(0, 100, 200, 15);
+  rect(0, 180, 200, 15);
 }
 function vstripes_light() {
   noStroke();
-  fill(81, 154, 137);
-  rect(0, 0, 15, 200);
-  rect(80, 0, 15, 200);
-  rect(160, 0, 15, 200);
+  fill(light_stripe_colour);
+  rect(15, 0, 15, 200);
+  rect(95, 0, 15, 200);
+  rect(175, 0, 15, 200);
 }
 function vstripes_dark(){
   noStroke();
-  fill(55, 112, 102);
-  rect(5, 0, 15, 200);
-  rect(85, 0, 15, 200);
-  rect(165, 0, 15, 200);
+  fill(dark_stripe_colour);
+  rect(20, 0, 15, 200);
+  rect(100, 0, 15, 200);
+  rect(180, 0, 15, 200);
 }
 
 

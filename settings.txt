@@ -9,46 +9,514 @@ Your final settings.txt will look something like this when you are finished:
 
 Wallpaper 1:
 
-//your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
+//Scale for each dinosaur
+let brachio_scale = 0.8;
+let tri_scale = 1.2;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 80
+let brachio_y = 150
+//Coordinates for Triceratops
+let tri_x = 120
+let tri_y = 48
+let brachio_neck_height = 150 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [147, 196, 125]
+let brachio_secondry = [112, 159, 91]
+let brachio_tertiary = [84, 120, 67]
+let brachio_belly = [210, 244, 195]
+
+// Triceratops Colour Parameters
+let tri_primary = [251, 197, 200]
+let tri_secondary = [213, 102, 111]
+let tri_tertiary = [231, 142, 150]
+let tri_belly = [255, 226, 228]
+
+// Background
+let background_colour = [45, 90, 83]
+let light_stripe_colour = [81, 154, 137]
+let dark_stripe_colour = [55, 112, 102]
+
+//Not changing this parameter
+let brachio_head_y = brachio_y-brachio_neck_height+30
 
 function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+function brachioDino() {
+  push();
+  translate(brachio_x, brachio_y);   // Move origin to dino position
+  scale(brachio_scale, brachio_scale); // Add - to invert it
+  translate(-brachio_x, -brachio_y); // Reset origin for drawing
+}
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
+}
+/////////////////////////////////
+
+Wallpaper 2:
+//Scale for each dinosaur
+let brachio_scale = 1.4;
+let tri_scale = 1.2;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 85
+let brachio_y = 20
+//Coordinates for Triceratops
+let tri_x = 115
+let tri_y = 135
+let brachio_neck_height = 40 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [255, 232, 122]
+let brachio_secondry = [235, 207, 70]
+let brachio_tertiary = [199, 174, 52]
+let brachio_belly = [249, 245, 207]
+
+// Triceratops Colour Parameters
+let tri_primary = [250, 135, 109]
+let tri_secondary = [217, 103, 75]
+let tri_tertiary = [162, 67, 45]
+let tri_belly = [249, 245, 207]
+
+// Background
+let background_colour = [34, 95, 178]
+let light_stripe_colour = [164, 198, 245]
+let dark_stripe_colour = [222, 236, 255]
+
+//Not changing this parameter
+let brachio_head_y = brachio_y-brachio_neck_height+30
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+function brachioDino() {
+  push();
+  translate(brachio_x, brachio_y);   // Move origin to dino position
+  scale(brachio_scale, brachio_scale); // Add - to invert it
+  translate(-brachio_x, -brachio_y); // Reset origin for drawing
+}
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(-tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
+}
+/////////////////////////////////
+
+Wallpaper 3:
+//Scale for each dinosaur
+let brachio_scale = 1.1;
+let tri_scale = 1.8;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 100
+let brachio_y = 0
+//Coordinates for Triceratops
+let tri_x = 120
+let tri_y = 120
+let brachio_neck_height = 110 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [161, 170, 125] //165, 172, 139
+let brachio_secondry = [103, 109, 78]
+let brachio_tertiary = [53, 61, 43]
+let brachio_belly = [194, 197, 173]
+
+// Triceratops Colour Parameters
+let tri_primary = [121, 82, 43]
+let tri_secondary = [40, 25, 16]
+let tri_tertiary = [81, 50, 25]
+let tri_belly = [140, 105, 64]
+
+// Background
+let background_colour = [161, 139, 105]
+let light_stripe_colour = [181, 173, 147]
+let dark_stripe_colour = [140, 105, 64]
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GLIDE_WALLPAPER);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+function brachioDino() {
+  push();
+  translate(brachio_x, brachio_y);   // Move origin to dino position
+  scale(-brachio_scale, brachio_scale); // Add - to invert it
+  translate(-brachio_x, -brachio_y); // Reset origin for drawing
+}
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(-tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
 }
 
 /////////////////////////////////
 
-Wallpaper 2:
+Wallpaper 4:
+//Scale for each dinosaur
+let brachio_scale = 0.6;
+let tri_scale = 2.3;
 
-//your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+//Coordinates for Brachiosaurus
+let brachio_x = 130
+let brachio_y = 20
+//Coordinates for Triceratops
+let tri_x = 80
+let tri_y = 100
+let brachio_neck_height = 230 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [81, 154, 137]
+let brachio_secondry = [55, 112, 102]
+let brachio_tertiary = [45, 90, 83]
+let brachio_belly = [249, 245, 207]
+
+// Triceratops Colour Parameters
+let tri_primary = [247, 159, 168]
+let tri_secondary = [193, 77, 94]
+let tri_tertiary = [224, 111, 122]
+let tri_belly = [255, 226, 228]
+
+// Background
+let background_colour = [248, 246, 240]
+let light_stripe_colour = [255, 176, 105]
+let dark_stripe_colour = [247, 141, 34]
+
+//Not changing this parameter
+let brachio_head_y = brachio_y-brachio_neck_height+30
+
 
 function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 0;
+}
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+  hstripes_dark();
+  hstripes_light();
+  vstripes_dark();
+  vstripes_light();
+  triDino(); // I got rid of brachioDino function
+}
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
+}
+/////////////////////////////////
+
+Wallpaper 5:
+//Scale for each dinosaur
+let brachio_scale = 0.9;
+let tri_scale = 1.2;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 80
+let brachio_y = 20
+//Coordinates for Triceratops
+let tri_x = 110
+let tri_y = 100
+let brachio_neck_height = 160 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [95, 155, 209]
+let brachio_secondry = [37, 92, 133]
+let brachio_tertiary = [11, 60, 89]
+let brachio_belly = [140, 194, 234]
+
+// Triceratops Colour Parameters
+let tri_primary = [43, 98, 49]
+let tri_secondary = [20, 41, 22]
+let tri_tertiary = [28, 64, 31]
+let tri_belly = [72, 135, 76]
+
+// Background
+let background_colour = [244, 204, 6]
+let light_stripe_colour = [244, 204, 6]
+let dark_stripe_colour = [176, 141, 47]
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GLIDE_WALLPAPER);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+function brachioDino() {
+  push();
+  translate(brachio_x, brachio_y);   // Move origin to dino position
+  scale(brachio_scale, -brachio_scale); // Add - to invert it
+  translate(-brachio_x, -brachio_y); // Reset origin for drawing
+}
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
+}
+/////////////////////////////////
+
+Wallpaper 6:
+//Scale for each dinosaur
+let brachio_scale = 0.9;
+let tri_scale = 1.2;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 110
+let brachio_y = 20
+//Coordinates for Triceratops
+let tri_x = 80
+let tri_y = 130
+let brachio_neck_height = 150 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [17,95,173]
+let brachio_secondry = [25, 62, 108]
+let brachio_tertiary = [11, 60, 89]
+let brachio_belly = [66, 142, 204]
+
+// Triceratops Colour Parameters
+let tri_primary = [207, 32, 38]
+let tri_secondary = [49, 17, 16]
+let tri_tertiary = [142, 7, 17]
+let tri_belly = [225, 101, 110]
+
+// Background
+let background_colour = [0]
+let light_stripe_colour = [255]
+let dark_stripe_colour = [0]
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+/////////////////////////////////
+
+Wallpaper 7:
+//Scale for each dinosaur
+let brachio_scale = 0.7;
+let tri_scale = 1.5;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 150
+let brachio_y = 20
+//Coordinates for Triceratops
+let tri_x = 100
+let tri_y = 130
+let brachio_neck_height = 230 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [0]
+let brachio_secondry = [0]
+let brachio_tertiary = [0]
+let brachio_belly = [0]
+
+// Triceratops Colour Parameters
+let tri_primary = [0]
+let tri_secondary = [0]
+let tri_tertiary = [0]
+let tri_belly = [0]
+
+// Background
+let background_colour = [249, 98, 181]
+let light_stripe_colour = [255]
+let dark_stripe_colour = [237, 46, 151]
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+function brachioDino() {
+  push();
+  translate(brachio_x, brachio_y);   // Move origin to dino position
+  scale(-brachio_scale, brachio_scale); // Add - to invert it
+  translate(-brachio_x, -brachio_y); // Reset origin for drawing
+}
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(-tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
+}
+/////////////////////////////////
+
+Wallpaper 8:
+//Scale for each dinosaur
+let brachio_scale = 1.1;
+let tri_scale = 1.2;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 100
+let brachio_y = 20
+//Coordinates for Triceratops
+let tri_x = 110
+let tri_y = 130
+let brachio_neck_height = 10 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [237, 24, 116]
+let brachio_secondry = [179, 30, 60]
+let brachio_tertiary = [0]
+let brachio_belly = [255]
+
+// Triceratops Colour Parameters
+let tri_primary = [0, 177, 175]
+let tri_secondary = [0]
+let tri_tertiary = [0, 124, 121]
+let tri_belly = [255]
+
+// Background
+let background_colour = [246, 235, 20]
+let light_stripe_colour = [253, 183, 20]
+let dark_stripe_colour = [0]
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GLIDE_WALLPAPER);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+function brachioDino() {
+  push();
+  translate(brachio_x, brachio_y);   // Move origin to dino position
+  scale(-brachio_scale, brachio_scale); // Add - to invert it
+  translate(-brachio_x, -brachio_y); // Reset origin for drawing
+}
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(-tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
+/////////////////////////////////
+
+Wallpaper 9:
+}//Scale for each dinosaur
+let brachio_scale = 1.1;
+let tri_scale = 1.8;
+
+//Coordinates for Brachiosaurus
+let brachio_x = 100
+let brachio_y = 20
+//Coordinates for Triceratops
+let tri_x = 120
+let tri_y = 120
+let brachio_neck_height = 110 //90 default
+
+// Brachiosaurus Colour Parameters
+let brachio_primary = [0]
+let brachio_secondry = [0]
+let brachio_tertiary = [0]
+let brachio_belly = [255]
+
+// Triceratops Colour Parameters
+let tri_primary = [0]
+let tri_secondary = [0]
+let tri_tertiary = [0]
+let tri_belly = [255]
+
+// Background
+let background_colour = [255]
+let light_stripe_colour = [255]
+let dark_stripe_colour = [0]
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GLIDE_WALLPAPER);
+ 
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+  hstripes_dark();
+  hstripes_light();
+  vstripes_dark();
+  vstripes_light();
+  brachioDino();
+  //triDino();
+}
+
+function brachioDino() {
+  push();
+  translate(brachio_x, brachio_y);   // Move origin to dino position
+  scale(-brachio_scale, brachio_scale); // Add - to invert it
+  translate(-brachio_x, -brachio_y); // Reset origin for drawing
+}
+
+function triDino() {
+  push();
+  translate(tri_x, tri_y);
+  scale(-tri_scale, tri_scale); // add - to make it inverted
+  translate(-tri_x, -tri_y);
 }
