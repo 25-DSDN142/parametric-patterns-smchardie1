@@ -50,7 +50,7 @@ function setup_wallpaper(pWallpaper) {
 function wallpaper_background() {
   background(background_colour); 
 }
-function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+function my_symbol() { // Calling on all the main functions to draw
   hstripes_dark();
   hstripes_light();
   vstripes_dark();
@@ -64,7 +64,7 @@ function brachioDino() {
   translate(brachio_x, brachio_y);   // Move origin to dino position
   scale(-brachio_scale, brachio_scale); // Add - to invert it
   translate(-brachio_x, -brachio_y); // Reset origin for drawing
-
+  // All the body parts of the dinosaur
   brachio_scales();
   brachio_body();
   brachio_head();
@@ -79,17 +79,17 @@ function brachioDino() {
 function brachio_body() {
   noStroke();
   fill(brachio_primary);
-  rect(brachio_x-50, brachio_y, 20, -brachio_neck_height);
-  ellipse(brachio_x, brachio_y, 100, 50);
+  rect(brachio_x-50, brachio_y, 20, -brachio_neck_height); //Neck
+  ellipse(brachio_x, brachio_y, 100, 50); //Body base
 }
 function brachio_head() {
   fill(brachio_secondry);
-  ellipse(brachio_x-31, brachio_head_y-36, 10);
+  ellipse(brachio_x-31, brachio_head_y-36, 10); // Scales on head
   ellipse(brachio_x-47, brachio_head_y-45, 10);
   fill(brachio_primary);
-  ellipse(brachio_x-50, brachio_head_y-30, 40, 30);
+  ellipse(brachio_x-50, brachio_head_y-30, 40, 30); //Head shape
   fill(brachio_tertiary);
-  ellipse(brachio_x-62, brachio_head_y-27, 4);
+  ellipse(brachio_x-62, brachio_head_y-27, 4); // Nostril
 }
 function brachio_eyes() {
   fill(0);
@@ -113,7 +113,7 @@ function brachio_front_feet() {
 }
 function brachio_tail() {
   fill(brachio_primary);
-  beginShape();
+  beginShape(); // Sketching out the tail
   curveVertex(brachio_x+40, brachio_y-15);
   curveVertex(brachio_x+75, brachio_y+10);
   curveVertex(brachio_x+75, brachio_y+35);
@@ -128,7 +128,7 @@ function brachio_tail() {
 function brachio_scales () {
   fill(brachio_secondry);
   noStroke();
-  //neck
+  // Scales on the neck so when the neck parameter changes there are scales added on
   if (brachio_neck_height > 210) {
     ellipse(brachio_x-30, brachio_y-215, 10);
   }
@@ -159,12 +159,12 @@ function brachio_scales () {
   if (brachio_neck_height > 30) {
     ellipse(brachio_x-30, brachio_y-35, 10);
   }
-  //body
+  // Scales on body
   ellipse(brachio_x-20, brachio_y-22, 10);
   ellipse(brachio_x, brachio_y-25, 10);
   ellipse(brachio_x+20, brachio_y-22, 10);
   ellipse(brachio_x+40, brachio_y-15, 10);
-  //tail
+  // Scales on tail
   ellipse(brachio_x+59, brachio_y-4, 10);
   ellipse(brachio_x+75, brachio_y+10, 10);
   ellipse(brachio_x+76, brachio_y+33, 10);
@@ -173,10 +173,10 @@ function brachio_scales () {
 // ----------Triceratops----------
 function triDino() {
   push();
-  translate(tri_x, tri_y);
-  scale(-tri_scale, tri_scale); // add - to make it inverted
-  translate(-tri_x, -tri_y);
-
+  translate(tri_x, tri_y); // Move origin to dino position
+  scale(-tri_scale, tri_scale); // Add - to invert it
+  translate(-tri_x, -tri_y); // Reset origin for drawing
+  // All the body parts of the dinosaur
   tri_back_legs();
   tri_body();
   tri_head();
@@ -189,10 +189,9 @@ function triDino() {
 function tri_body() {
   noStroke();
   fill(tri_primary);
-  ellipse(tri_x, tri_y, 47);
-  //arc(122.5, 43, 95, 60, 358, 130);
-  arc(tri_x-13, tri_y-15, 110, 80, 358, 75, OPEN);
-  beginShape();
+  ellipse(tri_x, tri_y, 47); // Body Base
+  arc(tri_x-13, tri_y-15, 110, 80, 358, 75, OPEN); // Chest & stomach
+  beginShape(); // Tail
   curveVertex(tri_x-21, tri_y-15);
   curveVertex(tri_x-30, tri_y+12);
   curveVertex(tri_x-38, tri_y+14);
@@ -202,7 +201,7 @@ function tri_body() {
   curveVertex(tri_x-30, tri_y+12);
   curveVertex(tri_x-38, tri_y+14);
   endShape();
-  triangle(tri_x-22.5, tri_y-6, tri_x-26, tri_y+4, tri_x-20, tri_y+4);
+  ///triangle(tri_x-22.5, tri_y-6, tri_x-26, tri_y+4, tri_x-20, tri_y+4);
   
 }
 function tri_head( ){
