@@ -201,24 +201,28 @@ function tri_body() {
   curveVertex(tri_x-30, tri_y+12);
   curveVertex(tri_x-38, tri_y+14);
   endShape();
-  ///triangle(tri_x-22.5, tri_y-6, tri_x-26, tri_y+4, tri_x-20, tri_y+4);
+  triangle(tri_x-22.5, tri_y-6, tri_x-26, tri_y+4, tri_x-20, tri_y+4); // Smoothes out where the bodys base and tail meet
   
 }
 function tri_head( ){
   fill(tri_secondary);
-  ellipse(tri_x+16, tri_y-3, 9) //bumps
-  ellipse(tri_x+16, tri_y-15, 9) //bumps
-  ellipse(tri_x+16, tri_y-27, 9) //bumps
+  // Bumps on head
+  ellipse(tri_x+16, tri_y-3, 9) 
+  ellipse(tri_x+16, tri_y-15, 9) 
+  ellipse(tri_x+16, tri_y-27, 9) 
   fill(tri_primary);
+  // Head shape
   triangle(tri_x+17, tri_y-33, tri_x+17, tri_y+7, tri_x+52, tri_y-13);
   rect(tri_x+32, tri_y-20.5, 25, 15)
   fill(tri_secondary);
+  // Two lines detail
   rect(tri_x+20, tri_y-20, 12, 4);
   rect(tri_x+20, tri_y-10, 12, 4);
+  // Horns
   triangle(tri_x+52, tri_y-20, tri_x+61, tri_y-28, tri_x+57, tri_y-16)
   triangle(tri_x+34, tri_y-23, tri_x+41, tri_y-33, tri_x+40, tri_y-20)
   fill(tri_tertiary);
-  ellipse(tri_x+52, tri_y-11, 3.5)
+  ellipse(tri_x+52, tri_y-11, 3.5) // Nostril
 }
 function tri_eye() {
   fill(0);
@@ -249,6 +253,7 @@ function tri_stomach() {
   endShape();
 }
 function hstripes_light(){
+  // Big horizontal lines
   noStroke();
   fill(light_stripe_colour);
   rect(0, 15, 200, 15);
@@ -256,6 +261,7 @@ function hstripes_light(){
   rect(0, 175, 200, 15);
 }
 function hstripes_dark(){
+  // Smaller horizontal lines
   noStroke();
   fill(dark_stripe_colour);
   rect(0, 20, 200, 15);
@@ -263,6 +269,7 @@ function hstripes_dark(){
   rect(0, 180, 200, 15);
 }
 function vstripes_light() {
+  // Big vertical lines
   noStroke();
   fill(light_stripe_colour);
   rect(15, 0, 15, 200);
@@ -270,6 +277,7 @@ function vstripes_light() {
   rect(175, 0, 15, 200);
 }
 function vstripes_dark(){
+  // Smaller vertical lines
   noStroke();
   fill(dark_stripe_colour);
   rect(20, 0, 15, 200);
